@@ -1,8 +1,8 @@
-package com.zfsoftmh.main.listener;
+package com.example.lily.newframe.common;
 
 /**
- * @author wesley
- * @date: 2017/3/13
+ * @author li
+ * @date: 2018/5/8
  * @Description: 自定义回调接口
  */
 public interface CallBackListener<T> {

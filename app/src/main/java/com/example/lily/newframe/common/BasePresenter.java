@@ -5,6 +5,8 @@ package com.example.lily.newframe.common;
  * on 2018/4/9.
  */
 
-public interface BasePresenter {
-    void cancelRequest();
+public interface BasePresenter <T>{
+
+    void bindView(T View);
+    void unbindView();
 }

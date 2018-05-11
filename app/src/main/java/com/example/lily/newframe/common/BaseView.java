@@ -5,13 +5,13 @@ package com.example.lily.newframe.common;
  * on 2018/4/9.
  */
 
-public interface BaseView <T>{
+public interface BaseView {
 
     /**
      * 让view层持有presenter的引用
      * @param presenter
      */
-  void setPresenter(T presenter);
+
 
     /**
      * 如果是fragment 看是否该fragment是否依附在activity上

@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
@@ -12,13 +11,14 @@ import android.widget.Toast;
 import com.example.lily.newframe.R;
 
 import butterknife.ButterKnife;
+import dagger.android.support.DaggerAppCompatActivity;
 
 /**
  * Created by ljq
  * on 2018/4/10.
  */
 
-public abstract class BaseActivity<T extends BasePresenter> extends AppCompatActivity implements BaseView<T>{
+public abstract class BaseActivity extends DaggerAppCompatActivity implements BaseView{
 
     protected abstract int getContentView();
 
@@ -28,10 +28,14 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
 
     protected abstract void onNavigationIcoClick(View v);
 
+    protected  abstract  void initView();
+
+    protected  abstract  void initVairable();
+
 
     private boolean defToolBar;//是否显示toolbar
     private Toolbar toolbar;
-    protected  T presenter;
+
     protected  BaseDialogFragmentImp imp;
 
     @Override
@@ -39,7 +43,9 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         super.onCreate(savedInstanceState);
         setContentView(getContentView());
         ButterKnife.bind(this);
+        initVairable();
         handleIntent();
+        initView();
         initListener();
     }
 
@@ -170,10 +176,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
     }
 
-    @Override
-    public void setPresenter(T presenter) {
-           this.presenter=presenter;
-    }
+
 
     @Override
     public boolean isActive() {

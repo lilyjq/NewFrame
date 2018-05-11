@@ -12,21 +12,22 @@ import android.widget.Toast;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import dagger.android.support.DaggerFragment;
 
 /**
  * Created by ljq
  * on 2018/4/8.
  */
 
-public abstract class BaseFragment <T extends BasePresenter>extends Fragment implements BaseView<T>{
+public abstract class BaseFragment extends DaggerFragment implements BaseView{
 
-    protected  abstract  int getContentView();
+
     protected  abstract  void handleBundle(Bundle bundle);
     protected  abstract  void initVairables();
     protected  abstract  int getLayoutRes();
     protected  abstract  void initViews(View view);
     protected  abstract  void initListener();
-    protected   T presenter;
+
     protected  Context context;
     protected  BaseDialogFragmentImp imp;
 
@@ -103,9 +104,9 @@ public abstract class BaseFragment <T extends BasePresenter>extends Fragment imp
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if(presenter!=null){
+      /*  if(presenter!=null){
             presenter.cancelRequest();
-        }
+        }*/
     }
 
     @Override
@@ -122,10 +123,6 @@ public abstract class BaseFragment <T extends BasePresenter>extends Fragment imp
 
     }
 
-    @Override
-    public void setPresenter(T presenter) {
-        this.presenter = presenter;
-    }
 
     @Override
     public boolean isActive() {

@@ -1,4 +1,4 @@
-package com.zfsoftmh.main.common.utils;
+package com.example.lily.newframe.util;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
