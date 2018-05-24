@@ -5,13 +5,13 @@ import android.content.Context;
 
 import com.example.lily.newframe.common.Config;
 import com.example.lily.newframe.common.HttpManager;
+import com.example.lily.newframe.common.TaskApi;
 import com.example.lily.newframe.util.NetworkUtils;
 import com.facebook.stetho.okhttp3.StethoInterceptor;
 
 import java.io.File;
 import java.io.IOException;
 
-import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
 
@@ -49,15 +49,20 @@ public  class ActivityTaskMoudle {
 
     @Provides
     @Singleton
+    TaskApi provideTaskApi(Retrofit retrofit){
+        return retrofit.create(TaskApi.class);
+    }
+
+
+    @Provides
+    @Singleton
     Retrofit provideRetrofit(@Named("baseurl") String baseUrl, OkHttpClient client){
-          new Retrofit.Builder()
+        return  new Retrofit.Builder()
                   .baseUrl(baseUrl)
+                  .client(client)
                   .addConverterFactory(GsonConverterFactory.create())
                   .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                   .build();
-
-        return null;
-
     }
 
     @Provides

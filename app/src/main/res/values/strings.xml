@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">NewFrame</string>
+    <string name="sub_title">sub_title</string>
+    <string name="title">title</string>
 </resources>

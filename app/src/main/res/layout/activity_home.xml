@@ -1,15 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawerlayout"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.lily.newframe.ui.home.HomeActivity">
 
-  <FrameLayout
-      android:id="@+id/commmon_content"
-      android:layout_width="match_parent"
-      android:layout_margin="10dp"
-      android:layout_height="match_parent"/>
 
-</android.support.constraint.ConstraintLayout>
+
+
+
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/side_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:navigationIcon="@mipmap/ic_book_list"
+        app:subtitle="@string/sub_title"
+        app:title="@string/title" />
+
+    <FrameLayout
+        android:id="@+id/commmon_content"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="match_parent"/>
+  </LinearLayout>
+
+
+  <LinearLayout
+      android:layout_width="250dp"
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      android:layout_gravity="left"
+      android:background="@color/colorwhite"
+      >
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:background="@mipmap/timg"/>
+
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/homeleft_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+  </LinearLayout>
+
+
+
+</android.support.v4.widget.DrawerLayout>

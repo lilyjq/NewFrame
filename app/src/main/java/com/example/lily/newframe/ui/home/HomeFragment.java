@@ -6,6 +6,7 @@ import android.view.View;
 
 import com.example.lily.newframe.R;
 import com.example.lily.newframe.common.BaseFragment;
+import com.example.lily.newframe.common.HttpManager;
 
 import javax.inject.Inject;
 

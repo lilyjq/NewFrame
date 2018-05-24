@@ -6,6 +6,7 @@ import android.content.Context;
 import com.example.lily.newframe.common.AppApplication;
 import com.example.lily.newframe.common.CallBackListener;
 import com.example.lily.newframe.common.HttpManager;
+import com.example.lily.newframe.common.TaskApi;
 
 import javax.inject.Singleton;
 
@@ -13,6 +14,7 @@ import dagger.BindsInstance;
 import dagger.Component;
 import dagger.android.AndroidInjector;
 import dagger.android.support.AndroidSupportInjectionModule;
+import retrofit2.Retrofit;
 
 /**
  * Created by ljq
@@ -28,7 +30,7 @@ public interface AppComponent extends AndroidInjector<AppApplication>{
 
 
 
-
+    TaskApi getTaskApi();
 
     HttpManager getHttpManager();
 
